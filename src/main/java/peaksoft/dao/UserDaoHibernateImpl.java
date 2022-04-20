@@ -39,4 +39,12 @@ public class UserDaoHibernateImpl implements UserDao {
     public void cleanUsersTable() {
 
     }
+
+    @Override
+    public boolean existsByFirstName(String firstName) {
+        // eger databasede parametrine kelgen firstnamege okshosh adam bar bolso
+        // anda true kaitarsyn
+        // jok bolso anda false kaitarsyn.
+        return false;
+    }
 }

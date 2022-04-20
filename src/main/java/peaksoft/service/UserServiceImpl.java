@@ -28,4 +28,11 @@ public class UserServiceImpl implements UserService {
 
     public void cleanUsersTable() {
     }
+
+    public boolean existsByFirstName(String firstName) {
+        // eger databasede parametrine kelgen firstnamege okshosh adam bar bolso
+        // anda true kaitarsyn
+        // jok bolso anda false kaitarsyn.
+        return false;
+    }
 }

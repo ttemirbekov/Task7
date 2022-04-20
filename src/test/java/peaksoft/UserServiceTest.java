@@ -73,10 +73,10 @@ public class UserServiceTest {
         // given
         execute(DROP_TABLE_IF_EXIST_QUERY);
 
-        // then
+        // when
         underTest.createUsersTable();
 
-        // when
+        // then
         assertDoesNotThrow(() -> execute(DROP_TABLE_QUERY));
     }
 
@@ -85,10 +85,10 @@ public class UserServiceTest {
         // given
         underTest.saveUser(testName, testLastName, testAge);
 
-        // then
+        // when
         int result = getQuantityOfUsers();
 
-        // when
+        // then
         assertEquals(2, result);
     }
 
@@ -97,10 +97,10 @@ public class UserServiceTest {
         // given
         saveNewUser("Zamir", "Sabyrzhanov", (byte) 28);
 
-        // then
+        // when
         underTest.removeUserById(2);
 
-        // when
+        // then
         assertEquals(1, getQuantityOfUsers());
     }
 
@@ -109,11 +109,11 @@ public class UserServiceTest {
         // given
         saveNewUser(testName, testLastName, testAge);
 
-        // then
+        // when
         List<User> result = underTest.getAllUsers();
         int quantityOfUsers = getQuantityOfUsers();
 
-        // when
+        // then
         assertEquals(quantityOfUsers, result.size());
     }
 
@@ -122,13 +122,23 @@ public class UserServiceTest {
 
         // given
         underTest.cleanUsersTable();
-        // then
+        // when
         int result = getQuantityOfUsers();
 
-        // when
+        // then
         assertEquals(0, result);
     }
+    @Test
+    public void existsByFirstName() {
+        // given
+        saveNewUser("Muhammed", "Allanov", (byte) 23);
 
+        // when
+        boolean result = underTest.existsByFirstName("Muhammed");
+
+        // then
+        assertTrue(result);
+    }
     private int getQuantityOfUsers() {
         int quantityOfUsers = -1;
         try (Statement statement = connection.createStatement();

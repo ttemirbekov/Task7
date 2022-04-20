@@ -17,4 +17,5 @@ public interface UserDao {
     List<User> getAllUsers();
 
     void cleanUsersTable();
+    boolean existsByFirstName(String firstName);
 }
