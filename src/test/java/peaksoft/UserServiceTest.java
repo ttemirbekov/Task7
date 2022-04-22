@@ -95,7 +95,7 @@ public class UserServiceTest {
     @Test
     public void removeUserById() {
         // given
-        saveNewUser("Zamir", "Sabyrzhanov", (byte) 28);
+        saveNewUser("Alex", "Lee", (byte) 28);
 
         // when
         underTest.removeUserById(2);
@@ -129,12 +129,12 @@ public class UserServiceTest {
         assertEquals(0, result);
     }
     @Test
-    public void existsByFirstName() {
+    public void existsByFirstName() throws SQLException {
         // given
-        saveNewUser("Muhammed", "Allanov", (byte) 23);
+        saveNewUser("Jackie", "Chan", (byte) 23);
 
         // when
-        boolean result = underTest.existsByFirstName("Muhammed");
+        boolean result = underTest.existsByFirstName("Jackie");
 
         // then
         assertTrue(result);

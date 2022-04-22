@@ -2,6 +2,7 @@ package peaksoft.service;
 
 import peaksoft.model.User;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface UserService {
@@ -18,6 +19,5 @@ public interface UserService {
 
     void cleanUsersTable();
 
-    boolean existsByFirstName(String firstName);
+    boolean existsByFirstName(String firstName) throws SQLException;
 }
-
